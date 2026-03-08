@@ -1,15 +1,26 @@
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from "@/components/ui/skeleton";
 
-export function TableLoader({column_count}:{column_count: number}) {
+interface TableLoaderProps {
+  column_count: number;
+}
+
+export function TableLoader({ column_count }: TableLoaderProps) {
+  const ROWS = 5;
+
   return (
-    <div className="flex w-full max-w-sm flex-row gap-2">
-      {Array.from({ length: column_count }).map((_, index) => (
-        <div className="flex gap-4" key={index}>
-          <Skeleton className="h-4 flex-1" />
-          <Skeleton className="h-4 w-24" />
-          <Skeleton className="h-4 w-20" />
+    <div className="flex flex-col gap-3">
+      <div className="h-10 bg-gray-300 rounded-t-md"></div>
+      {Array.from({ length: ROWS }).map((_, rowIndex) => (
+        <div
+          key={rowIndex}
+          className="grid gap-2"
+          style={{ gridTemplateColumns: `repeat(${column_count}, 1fr)` }}
+        >
+          {Array.from({ length: column_count }).map((_, colIndex) => (
+            <Skeleton key={colIndex} className="h-8 w-full rounded-none bg-gray-200" />
+          ))}
         </div>
       ))}
     </div>
-  )
+  );
 }
