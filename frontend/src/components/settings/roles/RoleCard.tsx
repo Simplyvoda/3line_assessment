@@ -24,13 +24,13 @@ const RoleCard = ({
 }: RoleCardProps) => {
   return (
     <div
-      data-testid={`role-card-${id}`} 
+      data-testid={`role-card-${id}`}
       className={`relative flex items-center justify-between w-full rounded-xl border p-5 hover:bg-purple-50/40 cursor-pointer ${checked ? "border-primary bg-[#F9F5FF]" : "border-gray-200 bg-white"}`}
       onClick={onCheckChange}
     >
       <div className="flex items-start gap-4">
         <div className="flex h-10 w-12 items-center justify-center rounded-sm border bg-white">
-          <Users className="h-6 w-6 text-gray-500" />
+          <Users className="h-6 w-6 text-gray-500" aria-hidden="true" />
         </div>
 
         <div className="flex flex-col text-sm">
@@ -55,13 +55,17 @@ const RoleCard = ({
               </button>
             )}
 
-            <button className="font-lighter text-[#6941C6] hover:opacity-80 cursor-pointer">
+            <button
+              className="font-lighter text-[#6941C6] hover:opacity-80 cursor-pointer"
+              aria-label={`Edit role ${name}`}
+            >
               Edit
             </button>
 
             <button
               onClick={() => onRemove(id)}
               className="font-lighter text-[#6941C6] hover:opacity-80 cursor-pointer"
+              aria-label={`Remove role ${name}`}
             >
               Remove
             </button>
@@ -73,6 +77,7 @@ const RoleCard = ({
         checked={checked}
         onCheckedChange={onCheckChange}
         className="top-5 right-5 absolute h-5 w-5 rounded-full border border-gray-300 cursor-pointer"
+        aria-label={`Select role ${name}`}
       />
     </div>
   );

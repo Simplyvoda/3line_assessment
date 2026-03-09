@@ -105,7 +105,7 @@ const ActiveRoleSection = () => {
             className="flex gap-2 text-gray-500 text-sm md:text-md mt-2 md:mt-4 cursor-pointer"
             onClick={onToggle}
           >
-            <Plus size={20} />
+            <Plus size={20} aria-hidden="true"/>
             Add role to user
           </p>
         </div>

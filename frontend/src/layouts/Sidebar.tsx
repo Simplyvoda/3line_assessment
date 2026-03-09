@@ -19,7 +19,7 @@ export default function Sidebar({ drawerOpen }: SidebarProps) {
 
   const closeBanner = () => {
     setShowBanner(false);
-  }
+  };
 
   return (
     <aside
@@ -53,7 +53,7 @@ export default function Sidebar({ drawerOpen }: SidebarProps) {
         </InputGroupAddon>
       </InputGroup>
 
-      <nav className="flex flex-col gap-2">
+      <nav className="flex flex-col gap-2" aria-label="Main navigation">
         {NAV_ITEMS.map((link) => (
           <NavLink
             to={link.href}
@@ -88,7 +88,9 @@ export default function Sidebar({ drawerOpen }: SidebarProps) {
           </div>
         </div>
 
-        <LogOut className="text-gray-500" size={18} />
+        <button aria-label="Log out" className="text-gray-500 cursor-pointer">
+          <LogOut size={18} />
+        </button>
       </div>
     </aside>
   );

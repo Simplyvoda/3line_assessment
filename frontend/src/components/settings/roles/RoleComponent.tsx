@@ -42,9 +42,9 @@ const RoleComponent = () => {
       label: "An alternative email",
       extra: preferedEmail === "alt-email" && (
         <InputGroup className="mt-2 w-full lg:w-[450px] bg-white flex-1">
-          <InputGroupInput placeholder="billing@untitledui.com" />
+          <InputGroupInput placeholder="billing@untitledui.com"   aria-label="Alternative email"/>
           <InputGroupAddon align="inline-start">
-            <Mail />
+            <Mail aria-hidden="true"/>
           </InputGroupAddon>
         </InputGroup>
       ),
@@ -70,6 +70,7 @@ const RoleComponent = () => {
           </div>
 
           <RadioGroup
+            aria-label="Connected email options"
             defaultValue="account-email"
             className="flex flex-col space-y-4"
             onValueChange={(val) =>
@@ -109,7 +110,7 @@ const RoleComponent = () => {
             className="border-gray-300 text-gray-700 cursor-pointer"
           >
             {" "}
-            <DownloadCloud /> Download all
+            <DownloadCloud aria-hidden="true" /> Download all
           </Button>
         </div>
 
