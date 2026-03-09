@@ -24,6 +24,7 @@ const RoleCard = ({
 }: RoleCardProps) => {
   return (
     <div
+      data-testid={`role-card-${id}`} 
       className={`relative flex items-center justify-between w-full rounded-xl border p-5 hover:bg-purple-50/40 cursor-pointer ${checked ? "border-primary bg-[#F9F5FF]" : "border-gray-200 bg-white"}`}
       onClick={onCheckChange}
     >

@@ -64,6 +64,7 @@ const AddUserToRoleModal = ({
             const selected = selectedRoles.includes(role?.id as string);
             return (
               <div
+                data-testid={`role-checkbox-${role.id}`}
                 className={`relative flex items-center justify-between w-full rounded-xl border p-5 hover:bg-purple-50/40 cursor-pointer ${selected ? "border-primary bg-[#F9F5FF]" : "border-gray-200 bg-white"}`}
               >
                 <div className="flex items-start gap-4">

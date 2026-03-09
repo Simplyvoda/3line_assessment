@@ -8,7 +8,7 @@ export function TableLoader({ column_count }: TableLoaderProps) {
   const ROWS = 5;
 
   return (
-    <div className="flex flex-col gap-3">
+    <div data-testid="table-loader" className="flex flex-col gap-3">
       <div className="h-10 bg-gray-300 rounded-t-md"></div>
       {Array.from({ length: ROWS }).map((_, rowIndex) => (
         <div

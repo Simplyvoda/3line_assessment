@@ -204,7 +204,7 @@ export const availableRoles: IUserRole[] = [
     createdAt: "Mar 1, 2023",
     status: RoleStatus.ACTIVE,
   },
-  {    id: "deputy-sales-personnel",
+  { id: "deputy-sales-personnel",
     name: "Deputy sales personnel",
     type: "CUSTOM",
     createdAt: "Apr 1, 2023",

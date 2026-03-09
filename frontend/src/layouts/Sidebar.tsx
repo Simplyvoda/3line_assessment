@@ -1,4 +1,4 @@
-import { PlayButton } from "@/components/icons/PlayButton";
+import NewFeatureCard from "@/components/dashboard/NewFeatureCard";
 import { Badge } from "@/components/ui/badge";
 import {
   InputGroup,
@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/input-group";
 import { NAV_ITEMS } from "@/constants/navigation";
 import { LogOut, Search } from "lucide-react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 interface SidebarProps {
@@ -14,6 +15,12 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ drawerOpen }: SidebarProps) {
+  const [showBanner, setShowBanner] = useState<boolean>(true);
+
+  const closeBanner = () => {
+    setShowBanner(false);
+  }
+
   return (
     <aside
       role="dialog"
@@ -51,7 +58,7 @@ export default function Sidebar({ drawerOpen }: SidebarProps) {
           <NavLink
             to={link.href}
             key={link.label}
-            className={({isActive}) =>
+            className={({ isActive }) =>
               `relative flex items-center justify-start gap-2 px-3 py-2 cursor-pointer w-full ${isActive ? "text-gray-900 bg-gray-50 rounded-md" : "text-gray-700"}`
             }
           >
@@ -67,33 +74,7 @@ export default function Sidebar({ drawerOpen }: SidebarProps) {
         ))}
       </nav>
 
-      <div className="w-full bg-gray-50 rounded-xl  p-6">
-        <div className="space-y-2">
-          <h3 className="text-lg text-gray-900">New features available!</h3>
-
-          <p className="text-sm text-gray-500 leading-relaxed">
-            Check out the new dashboard view. Pages now load faster.
-          </p>
-        </div>
-
-        <div className="relative mt-4 overflow-hidden rounded-md">
-          <img
-            src="/images/news_banner.jpg"
-            alt="New features thumbnail"
-            className="w-full h-40 object-cover"
-          />
-
-          <div className="absolute left-5 bottom-5 flex items-center justify-center">
-            <PlayButton />
-          </div>
-        </div>
-
-        <div className="mt-4 flex items-center gap-4 text-sm">
-          <button className="text-gray-500 cursor-pointer">Dismiss</button>
-
-          <button className="text-[#6941C6] cursor-pointer">What’s new?</button>
-        </div>
-      </div>
+      {showBanner && <NewFeatureCard onDismiss={closeBanner} />}
 
       <div className="mt-auto flex items-center pb-2 pt-6 justify-between w-full border-t border-gray-200">
         <div className="flex items-center gap-2">
