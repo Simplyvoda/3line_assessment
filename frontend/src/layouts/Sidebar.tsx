@@ -1,4 +1,5 @@
 import NewFeatureCard from "@/components/dashboard/NewFeatureCard";
+import Logo from "@/components/icons/Logo";
 import { Badge } from "@/components/ui/badge";
 import {
   InputGroup,
